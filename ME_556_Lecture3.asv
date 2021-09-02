@@ -7,10 +7,10 @@ clear all; close all;
 I = imread('photo_sample.jpg');
 %I = imread('InterlockPuzzle.png');
 I1 = rgb2gray(I);
-figure, imshow(uint8(I1))
+figure, imshow(I1)
 % Setting up filter (FS = filter size)
-FS = 7; sigma = FS/3;
-H = zeros(FS, FS);
+
+
 
 % Gaussian filtering w/o built in function 
 % Gaussian filtering formula more or less
@@ -22,8 +22,8 @@ for i = 1:FS
 end
 % Leftover code
 % Mean filtering w/o built in function
-% FS = 7; H = ones(FS,FS)*(1/(FS^2)); %idk where this came 
-
+% FS = 7; H = ones(FS,FS)*(1/(FS^2));
+% H = zeros(FS, FS); FS = 11; sigma = FS/3;
 % H = H./sum(sum(H)); % doing another normalization, we want total energy 
 % ignore the above line of code now that we fixed Gaussian
 % filter kernel must sum to 1
@@ -56,8 +56,8 @@ figure, imshow(uint8(I2));
 
 % Gaussian Filtering with built in function
 
-% FS = 11; sigma = FS/3; 
-% H = fspecial('gaussian', [FS, FS], sigma);
+%  FS = 11; sigma = FS/3;
+% H1 = fspecial('gaussian', [FS, FS], sigma);
 % I3 = imfilter(I1, H1);figure, imshow(uint8(I3))
 
 
