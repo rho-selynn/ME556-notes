@@ -8,7 +8,7 @@ I1 = rgb2gray(I);
 figure, imshow(uint8(I1))
 
 % Gaussian filtering w/o built in function
-FS = 11; sigma = FS/3; H = zeros(FS, FS); 
+FS = 7; sigma = FS/3; H = zeros(FS, FS); 
 
 [rows, cols] = size(I1);
 I2 = I1;
@@ -26,18 +26,5 @@ for i = (FS+1)/2: rows-(FS+1)/2+1
 end
 figure, imshow(I2);
 
-
-
-
-% Mean filtering with built in functions
-% FS = 11;
-% H = ones(FS,FS)*(1/(FS^2));
-% I2 = imfilter(I1, H);
-% figure, imshow(uint8(I2))
-
-% Gaussian Filtering with built in function
-%  FS = 11; sigma = FS/3;
-% H1 = fspecial('gaussian', [FS, FS], sigma);
-% I3 = imfilter(I1, H1);figure, imshow(uint8(I3))
 
 
