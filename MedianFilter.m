@@ -5,10 +5,11 @@ clear all; close all;
 I = imread('photo_sample.jpg');
 
 I1 = rgb2gray(I);
-figure, imshow(uint8(I1))
+I2 = imnoise(I1, 'gaussian'); % adding noise 
+figure, imshow(uint8(I2))
 
 % Gaussian filtering w/o built in function
-FS = 7; sigma = FS/3; H = zeros(FS, FS); 
+FS = 3; sigma = FS/3; H = zeros(FS, FS); 
 
 [rows, cols] = size(I1);
 I2 = I1;
