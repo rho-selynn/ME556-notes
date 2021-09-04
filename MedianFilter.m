@@ -9,7 +9,7 @@ I2 = imnoise(I1, 'gaussian'); % adding noise
 figure, imshow(uint8(I2))
 
 % Gaussian filtering w/o built in function
-FS = 3; sigma = FS/3; H = zeros(FS, FS); 
+FS = 3; sigma = FS/3; 
 
 [rows, cols] = size(I1);
 I2 = I1;
@@ -18,9 +18,8 @@ for i = (FS+1)/2: rows-(FS+1)/2+1
     for j = (FS+1)/2:cols-(FS+1)/2+1
         
         window = I1(i-(FS-1)/2 : i+(FS-1)/2, j-(FS-1)/2 : j+(FS-1)/2);
-        %multi = double(window).*H;
-        %result = sum(sum(multi));
         result = median(window(:)); % putting array into 1-D vector
+        % and sorting to find median pixel
         I2(i,j) = result;
         
     end
