@@ -8,7 +8,7 @@ I1 = rgb2gray(I);
 I2 = imnoise(I1, 'gaussian'); % adding noise 
 figure, imshow(uint8(I2))
 
-% Gaussian filtering w/o built in function
+% Median filtering w/o built in function
 FS = 3; sigma = FS/3; 
 
 [rows, cols] = size(I1);

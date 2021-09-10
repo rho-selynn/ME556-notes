@@ -28,7 +28,7 @@ figure, imshow(firstimagebc)
 
 
 % second image
-n = 6;
+n = 10; % number of squares
 i = 1;
 j = 1;
 k = 1;
